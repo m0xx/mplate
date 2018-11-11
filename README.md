@@ -54,3 +54,9 @@ Run:
 echo "Welcome <%= user.name %>!" | mplate --context-file context.yaml --context-format yaml
 Welcome admin!
 ```
+### Render with a different engine (handlebars)
+Run:
+```
+echo "Welcome {{ username }}!" | mplate --context "{\"username\": \"admin\"}" --engine handlebars
+Welcome admin!
+```
