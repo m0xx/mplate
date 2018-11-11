@@ -15,48 +15,44 @@ Render template from command line. Supports multiple engines and is pipeable wit
 ## Usage
 
 ### Render template to file
-Template `welcome.ejs`
-```
+`./welcome.ejs`
+```ejs
 Welcome <%= username %>!
 ```
-Run:
-```
+```bash
 mplate --context "{\"username\": \"admin\"}" -f welcome.ejs -o out.txt
 ```
 
 ### Render template from stream
-Run:
-```
+```bash
 echo "Welcome <%= username %>!" | mplate --context "{\"username\": \"admin\"}"
 Welcome admin!
 ```
-Run:
-```
+From file server:
+```bash
 curl -s https://example.com/template/location.ejs | mplate --context "{\"username\": \"admin\"}"
 Welcome admin!
 ```
 
 ### Use environment variables
-Run:
-```
+```bash
 echo "User home:<%= USER_HOME %>" | mplate --use-env
 User home: ~/user/home
 ```
 
 ### Load context from file
-Context file `context.yaml`
+`./context.yaml`
 ```yaml
 user:
     name: admin
 ```
-Run:
-```
+
+```bash
 echo "Welcome <%= user.name %>!" | mplate --context-file context.yaml --context-format yaml
 Welcome admin!
 ```
 ### Render with a different engine (handlebars)
-Run:
-```
+```bash
 echo "Welcome {{ username }}!" | mplate --context "{\"username\": \"admin\"}" --engine handlebars
 Welcome admin!
 ```
