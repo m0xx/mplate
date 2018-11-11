@@ -1,0 +1,41 @@
+{
+  "name": "mplate",
+  "version": "1.0.0",
+  "description": "Render template from command line. Supports multiple engines and is pipeable with your favorites tools!",
+  "main": "./lib/index.js",
+  "bin": "./bin/index.js",
+  "homepage": "https://github.com/m0xx/mplate",
+  "bugs": "https://github.com/m0xx/mplate/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/m0xx/mplate.git"
+  },
+  "scripts": {
+    "format": "prettier --write \"{lib,bin}/**/*.js\""
+  },
+  "keywords": [
+    "cli",
+    "template",
+    "handlebars",
+    "ejs",
+    "es6",
+    "pipeable",
+    "tool"
+  ],
+  "author": {
+    "email": "maxime.morin2@gmail.com",
+    "name": "Maxime Morin"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "es6-template-strings": "^2.0.1",
+    "get-stream": "^4.1.0",
+    "handlebars": "^4.0.12",
+    "js-yaml": "^3.12.0",
+    "shortid": "^2.2.14"
+  },
+  "devDependencies": {
+    "prettier": "^1.15.2"
+  }
+}
