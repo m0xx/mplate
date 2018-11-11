@@ -1,6 +1,6 @@
 {
   "name": "mplate",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Render template from command line. Supports multiple engines and is pipeable with your favorites tools!",
   "main": "./lib/index.js",
   "bin": "./bin/index.js",
