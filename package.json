@@ -11,7 +11,8 @@
     "url": "https://github.com/m0xx/mplate.git"
   },
   "scripts": {
-    "format": "prettier --write \"{lib,bin}/**/*.js\""
+    "format": "prettier --write \"{lib,bin}/**/*.js\"",
+    "test": "./test/test_cli.sh"
   },
   "keywords": [
     "cli",
