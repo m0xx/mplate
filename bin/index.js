@@ -4,13 +4,15 @@ const program = require('commander');
 const yaml = require('js-yaml');
 const fs = require('fs');
 const shortid = require('shortid');
+const pkg = require('./../package')
+
 
 const createTemplateStream = require('./../lib');
 
 program
-  .version('1.0.0')
+  .version(pkg.version)
   .description('Template utilities')
-  .option('-f --file <file>', 'Template input file')
+  .requiredOption('-f --file <file>', 'Template input file. \'-\' to read from stdin')
   .option('-o --output <output>', 'Output file')
   .option('-e --engine <engine>', 'Template engine', /^(ejs|es6|handlebars)$/i, 'ejs')
   .option('-c --context <context>', 'Template context for interpolation in JSON', '{}')
@@ -43,12 +45,12 @@ function buildContext() {
 }
 
 function getInputStream() {
-  if (program.file) {
-    return fs.createReadStream(program.file, { encoding: 'utf8' });
+  if(program.file.trim() === '-') {
+    process.stdin.setEncoding('utf8');
+    return process.stdin;
   }
-
-  process.stdin.setEncoding('utf8');
-  return process.stdin;
+  
+  return fs.createReadStream(program.file, { encoding: 'utf8' });
 }
 
 function getOutputStream() {
